@@ -58,7 +58,7 @@ int main(void) {
 
             if (board[nR][nC] == '!') {
                 dq.emplace_back(make_pair(make_pair(curDist + 1, (curDir + 1) % 4), make_pair(nR, nC)));
-                dq.emplace_back(make_pair(make_pair(curDist + 1, (curDir - 1)<0? 3: curDir -1), make_pair(nR, nC)));
+                dq.emplace_back(make_pair(make_pair(curDist + 1, (curDir - 1) < 0 ? 3 : curDir -1), make_pair(nR, nC)));
             }
             dq.emplace_front(make_pair(make_pair(curDist, curDir), make_pair(nR, nC)));
         }
