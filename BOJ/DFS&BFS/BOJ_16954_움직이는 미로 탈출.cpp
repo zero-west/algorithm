@@ -1,5 +1,4 @@
 #include <iostream>
-#include <map>
 #include <queue>
 #include <algorithm>
 #include <deque>
@@ -7,7 +6,6 @@
 using namespace std;
 
 vector<vector<char>> board, sec[10];
-map<vector<vector<char>>, bool> visited;
 deque<pair<pair<int, int>, int>> dq;
 queue<pair<pair<int, int>, int>> que;
 
