@@ -24,12 +24,11 @@ void going(int location, int power) {
         curLoc++;
         curPow--;
     }
-
 }
 
 int solution(int n, vector<int> weak, vector<int> dist) {
     N = n;
-    int answer = 0;
+   
     bool flag = false;
     visited.assign(n + 1, false);
 
