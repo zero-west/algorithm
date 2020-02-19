@@ -4,7 +4,9 @@ using namespace std;
 
 int N, M, roomCnt, maxArea, oneDelMax, board[50][50];
 int visited[50][50];
+
 int numArea[2500];
+
 
 const int dr[] = {0, -1, 0, 1};
 const int dc[] = {-1, 0, 1, 0};
@@ -66,12 +68,11 @@ int main(void) {
         }
     }
 
-    int flag = 1;
     for (int i = 0; i < M; i++) {
         for (int j = 0; j < N; j++) {
             if (!visited[i][j]) {
                 roomCnt++;
-                bfs(i, j, flag++);
+                bfs(i, j, roomCnt);
             }
         }
     }
