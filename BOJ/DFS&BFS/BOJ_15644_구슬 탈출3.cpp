@@ -65,8 +65,7 @@ int main(void) {
 					blueR = nbR;
 					blueC = nbC;
 					break;
-				}
-				else {
+				} else {
 					blueR = nbR;
 					blueC = nbC;
 				}
@@ -81,8 +80,7 @@ int main(void) {
 					redR = nrR;
 					redC = nrC;
 					break;
-				}
-				else {
+				} else {
 					redR = nrR;
 					redC = nrC;
 				}
@@ -97,8 +95,7 @@ int main(void) {
 				if (redDist < blueDist) {
 					blueR -= dr[dir];
 					blueC -= dc[dir];
-				}
-				else {
+				} else {
 					redR -= dr[dir];
 					redC -= dc[dir];
 				}
