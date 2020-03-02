@@ -26,23 +26,23 @@ for tc in range(1, T + 1):
                cnt += 1
                continue
 
-            curR, curC, Dir, Energy = info[idx]
-            nR = curR + dr[Dir]
-            nC = curC + dc[Dir]
+            curR, curC, dir, energy = info[idx]
+            nR = curR + dr[dir]
+            nC = curC + dc[dir]
             
             info[idx][0] = nR
             info[idx][1] = nC
             
             if (nR, nC) in nxtList:
                 preEnergy, visIdx = nxtList[(nR,nC)]
-                preEnergy += Energy
+                preEnergy += energy
                 visited[visIdx] = 1
                 visited[idx] = 1
 
                 # 갱신
                 nxtList[(nR,nC)] = (preEnergy, N)
             else:
-                nxtList[(nR, nC)] = (Energy, idx)
+                nxtList[(nR, nC)] = (energy, idx)
 
         for nxt in nxtList.keys():
             if nxtList[nxt][1] == N:
