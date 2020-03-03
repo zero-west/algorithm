@@ -29,3 +29,11 @@ def combi_rep(arr, r):
                 yield [arr[i]] + nxt
                 
                 
+# 리스트 각각의 원소에 대해 선택여부 : O(2^N) (= 멱집합)
+def powerset(arr):
+    masking = [1 << i for i in range(len(arr))]
+
+    for i in range(1 << len(arr)):
+        yield [a for a, mask in zip(arr, masking) if mask & i]
+                
+                
