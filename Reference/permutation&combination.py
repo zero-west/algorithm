@@ -10,11 +10,22 @@ def all_perms(arr):
 
 
 # 리스트에서 r 개 뽑는 경우의 수 (= 조합)
-def combinations(arr, r):
+def combi(arr, r):
     for i in range(len(arr)):
         if r == 1:
             yield [arr[i]]
         else:
-            for nxt in combinations(arr[i+1:], r-1):
+            for nxt in combi(arr[i + 1:], r - 1):
                 yield [arr[i]] + nxt
 
+                
+# 리스트에서 r개 중복을 허용하여 뽑는 경우의 수 (= 중복조합)
+def combi_rep(arr, r):
+    for i in range(len(arr)):
+        if r == 1:
+            yield [arr[i]]
+        else:
+            for nxt in combi(arr[i:], r-1):
+                yield [arr[i]] + nxt
+                
+                
