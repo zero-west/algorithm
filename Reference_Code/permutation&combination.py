@@ -1,4 +1,4 @@
-# 리스트가 주어졌을 때 모든 경우의 수 (= std::next_permutation())
+# 리스트가 주어졌을 때 전부 섞는 모든 경우의 수 (= std::next_permutation())
 def all_perms(arr):
     if len(arr) <= 1:
         yield arr
@@ -7,6 +7,24 @@ def all_perms(arr):
             for i in range(len(arr)):
                 # nb elements[0:1] works in both string and list contexts
                 yield nxt[:i] + arr[0:1] + nxt[i:]
+
+                
+
+# 리스트에서 r 개 뽑아 섞는 경우의 수 (= 순열)
+r = 3
+arr = [1,2,3,4,5]
+def permutations(prefix,k):
+    if len(prefix) == r:
+        yield prefix
+    else:
+        for i in range(k, len(arr)):
+            arr[i], arr[k] = arr[k], arr[i]
+            for nxt in permutations(prefix + [arr[k]], k + 1):
+                yield nxt
+            arr[i], arr[k] = arr[k], arr[i]
+           
+permutations([],0)        # 제너레이터 호출
+
 
 
 # 리스트에서 r 개 뽑는 경우의 수 (= 조합)
@@ -27,6 +45,7 @@ def combi_rep(arr, r):
         else:
             for nxt in combi(arr[i:], r-1):
                 yield [arr[i]] + nxt
+                
                 
                 
 # 리스트 각각의 원소에 대해 선택여부 : O(2^N) (= 멱집합)
