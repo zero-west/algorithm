@@ -2,10 +2,13 @@
  # If the contents of the list are primitive data types(int, float, string, boolean), you can use a comprehension
 new_list = [i for i in old_list]
 
- # Multidimensional list
-new_grid = [[i for i in row] for row in grid]
+ # Multidimensional list - 1
+new_grid_1 = [[i for i in row] for row in grid]
 
-
+ # Multidimensional list - 2
+new_grid_2 = []
+for k in old_list:
+    new_grid_2.append(list(k))    # 반드시 list로 감싸서 넣어준다. 안 감싸면 new_grid_2 수정시 old_list도 같이 바뀐다.
 
 
 
