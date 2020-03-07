@@ -1,5 +1,5 @@
 # Algorithm
-This repo is for my Problem-Solving.
+This repo is for Problem-Solving.
 
 
 
@@ -10,5 +10,3 @@ This repo is for my Problem-Solving.
 
 ### - Reference Code
 개인적으로 공부하면서 참고할만한 코드들을 정리
-
-파이썬으로 작성된 코드는 Pythonic하도록 작성
