@@ -24,13 +24,13 @@ pair<long long, long> solve(int cur) {
 			if (cur - k < 0) break;
 			ret5 = min(ret5, solve(cur - k).second + curFive);
 		}
-	}	else if (ret5 != -1) {
+	} else if (ret5 != -1) {
 		ret2 = INF;
 		for (int k = 1; k <= K; k++) {
 			if (cur - k < 0) break;
 			ret2 = min(ret2, solve(cur - k).first + curTwo);
 		}
-	}	else {
+	} else {
 		ret2 = INF;
 		ret5 = INF;
 		for (int k = 1; k <= K; k++) {
