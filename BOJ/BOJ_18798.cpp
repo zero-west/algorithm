@@ -4,7 +4,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-const int MAX = 250001;
+
 int N, M, K;
 vector<int> arr, fenTree, segTree;
 
