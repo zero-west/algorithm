@@ -1,16 +1,14 @@
 def going(stones, curMid, k):
-    arr = list(map(lambda x: x - curMid + 1, stones))
-
     flager = 0
-    for stone in arr:
-        if stone <= 0:
+    for stone in stones:
+        if stone - curMid + 1 <= 0:
             flager += 1
         else:
             flager = 0
-        
+
         if flager >= k:
             return False
-            
+
     return True
 
 def solution(stones, k):
