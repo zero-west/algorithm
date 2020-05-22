@@ -1,4 +1,4 @@
-# 리스트가 주어졌을 때 전부 섞는 모든 경우의 수 (= std::next_permutation())
+# 리스트가 주어졌을 때 전부 섞는 모든 경우의 수 (std::next_permutation() 유사하지 unique 차이)
 def all_perms(arr):
     if len(arr) <= 1:
         yield arr
@@ -8,6 +8,31 @@ def all_perms(arr):
                 yield nxt[:i] + arr[0:1] + nxt[i:]
 
                 
+
+# next_permutation 구현
+def next_permutation(arr):
+    i, j = len(arr) - 1, len(arr) - 1
+
+    while i > 0 and arr[i - 1] >= arr[i]:
+        i -= 1
+
+    if i == 0:
+        return False
+
+    while arr[i - 1] >= arr[j]:
+        j -= 1
+
+    arr[i - 1], arr[j] = arr[j], arr[i - 1]
+
+    k = len(arr) - 1
+
+    while i < k:
+        arr[i], arr[k] = arr[k], arr[i]
+        i += 1
+        k -= 1
+    return arr
+
+
 
 # 리스트에서 r 개 뽑아 섞는 경우의 수 (= 순열)
 r = 3
