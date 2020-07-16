@@ -9,7 +9,8 @@ new_grid_1 = [[i for i in row] for row in grid]
 new_grid_2 = []
 for k in old_list:
     new_grid_2.append(list(k))    # 반드시 list로 감싸서 넣어준다. 안 감싸면 new_grid_2 수정시 old_list도 같이 바뀐다.
-
+  
+new_grid_2 = [list(k) for k in old_list] # 리스트 컴프리헨션으로 이러한 방법도 가능
 
 
 #2. 1차원에서는 깊은 복사
