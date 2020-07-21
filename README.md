@@ -10,5 +10,5 @@ This repo is for Problem-Solving.
 * LeetCode : [리트코드](https://leetcode.com/problemset/all/)
 
 
-### - Reference Code
+### - Code_Snippet
 개인적으로 공부하면서 참고할만한 코드들을 정리
