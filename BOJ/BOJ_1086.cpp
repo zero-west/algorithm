@@ -54,12 +54,12 @@ int main() {
     }
 
     long long answer = dp[(1<<N)-1][0];
-    if(answer==0){
+    if (answer == 0){
         cout << "0/1";
         return 0;
     }
     long long bunmo = 1;
-    for(int i=1;i<=N;i++){
+    for (int i = 1; i <= N; i++){
         bunmo *= i;
     }
     long long cur_gcd = gcd_recursion(answer, bunmo);
