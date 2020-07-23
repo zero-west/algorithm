@@ -63,8 +63,6 @@ for tc in range(1, T + 1):
         if binary_search(arrive, time):
             lo_idx = bisect.bisect_left(arrive, time)
             hi_idx = bisect.bisect_right(arrive, time)
-
-            for idx in range(lo_idx, hi_idx):
-                rQueue.append(idx)  # 고객번호
+            rQueue.extend(idx for idx in range(lo_idx, hi_idx)) # 고객 번호
 
     print('#%d %d' % (tc, tcRes if tcRes != 0 else -1))
