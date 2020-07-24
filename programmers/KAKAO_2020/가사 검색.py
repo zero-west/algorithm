@@ -33,12 +33,9 @@ class Trie:
         cur_node = self.head
         q_mark = Counter(f_word)['?']
 
-        for idx, ch in enumerate(f_word):
+        for ch in f_word:
             if ch == '?':
-                if q_mark in cur_node.mapping:
-                    return cur_node.mapping[q_mark]
-                else:
-                    return 0
+                return cur_node.mapping[q_mark] if q_mark in cur_node.mapping else 0
             if ch not in cur_node.child:
                 return 0
             cur_node = cur_node.child[ch]
@@ -46,7 +43,7 @@ class Trie:
 
 
 def solution(words, queries):
-    answer = []
+    answer = [None] * len(queries)
     prefix_trie = Trie()
     suffix_trie = Trie()
 
@@ -54,13 +51,10 @@ def solution(words, queries):
         prefix_trie.insert(word)
         suffix_trie.insert(word[::-1])
 
-    for query in queries:
+    for idx, query in enumerate(queries):
         if query[0] == '?':
-            answer.append(suffix_trie.find(query[::-1]))
+            answer[idx] = suffix_trie.find(query[::-1])
         else:
-            answer.append(prefix_trie.find(query))
+            answer[idx] = prefix_trie.find(query)
 
     return answer
-
-
-print(solution(["frodo", "front", "frost", "frozen", "frame", "kakao"], ["fro??", "????o", "fr???", "fro???", "pro?"]))
