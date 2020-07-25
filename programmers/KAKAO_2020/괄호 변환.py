@@ -9,12 +9,14 @@ def solution(p):
         return ''
 
     for idx, ch in enumerate(p):
-        u_count = Counter(p[:idx + 1])
-        v_count = Counter(p[idx + 1:])
+        u = p[:idx+1]
+        v = p[idx+1:]
+        u_count = Counter(u)
+        v_count = Counter(v)
 
         if u_count['('] == u_count[')'] and v_count['('] == v_count[')']:
             stack = []
-            for bracket in p[:idx + 1]:
+            for bracket in u:
                 if not stack:
                     stack.append(bracket)
                 else:
@@ -23,11 +25,11 @@ def solution(p):
                     else:
                         stack.append(bracket)
             if not stack:
-                answer = p[:idx + 1] + solution(p[idx + 1:])
+                answer = u + solution(v)
                 return answer
             else:
-                answer = '(' + solution(p[idx + 1:]) + ')'
-                for k in p[:idx + 1][1:-1]:
+                answer = '(' + solution(v) + ')'
+                for k in u[1:-1]:
                     if k == ')':
                         answer += '('
                     else:
