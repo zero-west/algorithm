@@ -5,9 +5,9 @@ def solution(user_id, banned_id):
     match_list = [[] for _ in range(len(banned_id))]
 
     for idx, k in enumerate(banned_id):
-        p = re.compile("'" + k.replace('*', '.') + "'")
+        p = re.compile("^" + k.replace('*', '.') + "$")
         for cur_id in user_id:
-            if p.findall("'" + cur_id + "'"):
+            if p.findall(cur_id):
                 match_list[idx].append(cur_id)
 
     result = set()
