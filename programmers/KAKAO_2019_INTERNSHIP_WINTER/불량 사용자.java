@@ -12,8 +12,7 @@ class Solution {
     public int solution(String[] user_id, String[] banned_id) {
         Stream.of(banned_id).forEach(cur -> {
             Pattern pattern = Pattern.compile("^" + cur.replace('*', '.') + "$");
-            ArrayList<String> curList = Stream.of(user_id)
-                    .filter(str -> pattern.matcher(str).find()).collect(Collectors.toCollection(ArrayList::new));
+            var curList = Stream.of(user_id).filter(str -> pattern.matcher(str).find()).collect(Collectors.toCollection(ArrayList::new));
             matchedList.add(curList);
         });
         solve(0);
