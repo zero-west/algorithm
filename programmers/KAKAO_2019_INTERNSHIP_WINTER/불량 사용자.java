@@ -1,14 +1,13 @@
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 class Solution {
-    ArrayList<ArrayList<String>> matchedList = new ArrayList<>();
+    List<ArrayList<String>> matchedList = new ArrayList<>();
 
-    ArrayList<String> selectList = new ArrayList<>();
-    HashSet<HashSet<String>> selectSet = new HashSet<>();
+    List<String> selectList = new ArrayList<>();
+    Set<HashSet<String>> selectSet = new LinkedHashSet<>();
 
     public int solution(String[] user_id, String[] banned_id) {
         Stream.of(banned_id).forEach(cur -> {
