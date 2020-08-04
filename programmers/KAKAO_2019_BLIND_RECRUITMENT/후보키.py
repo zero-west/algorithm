@@ -14,11 +14,10 @@ def solution(relation):
 
             if len(cur_set) == row_len:
                 flag = True
-                for k in range(1, len(select)+1):
-                    for inner in combinations(select, k):
-                        if inner in hubo:
-                            flag = False
-                            break
+                for k in range(1, len(select) + 1):
+                    if any([False if inner not in hubo else True for inner in combinations(select, k)]):
+                        flag = False
+                        break
                 if flag:
                     hubo.add(select)
     return len(hubo)
