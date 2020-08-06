@@ -1,4 +1,4 @@
-import heapq
+from heapq import *
 import sys
 
 dr = [-2, -2, -1, -1, 1, 1, 2, 2]
@@ -48,12 +48,12 @@ for i in range(m):
 minCushion = float('inf')
 result = 0
 pq = []
-heapq.heappush(pq, (0, Start))
+heappush(pq, (0, Start))
 cnt[Start[0]][Start[1]] = 1
 minDist[Start[0]][Start[1]] = 0
 
 while pq:
-    curDist, loc = heapq.heappop(pq);
+    curDist, loc = heappop(pq);
     curR, curC = loc
 
     if adjCan[curR][curC][End[0]][End[1]]:
@@ -73,7 +73,7 @@ while pq:
             if minDist[curR][curC] + 1 < minDist[i][j]:
                 minDist[i][j] = minDist[curR][curC] + 1
                 cnt[i][j] = cnt[curR][curC]
-                heapq.heappush(pq, (curDist + 1, (i, j)))
+                heappush(pq, (curDist + 1, (i, j)))
             elif minDist[curR][curC] + 1 == minDist[i][j]:
                 cnt[i][j] += cnt[curR][curC]
 
