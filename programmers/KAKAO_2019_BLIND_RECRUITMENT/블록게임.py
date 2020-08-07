@@ -1,3 +1,10 @@
+def validate(cur_board, r, c):
+    for idx in range(r + 1):
+        if cur_board[idx][c] != 0:
+            return False
+    return True
+
+
 def solution(board):
     N = len(board)
     mapping = {}
@@ -27,19 +34,13 @@ def solution(board):
                     else:
                         lacks[cur] = [(r, c)]
 
-    def validate(cur_board, r, c, val):
-        for idx in range(r + 1):
-            if cur_board[idx][c] != 0:
-                return False
-        return True
-
     result = 0
     while True:
         successes = []
         for lack in lacks:
             flag = True
             for cur_r, cur_c in lacks[lack]:
-                if not validate(cur_board, cur_r, cur_c, lack):
+                if not validate(cur_board, cur_r, cur_c):
                     flag = False
 
             if flag:
