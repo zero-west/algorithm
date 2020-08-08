@@ -1,18 +1,22 @@
 from heapq import *
 
 
-def solution(m, musicinfos):
+def convert(converted):
     prev_idx, cur_idx, splitter = -1, -1, []
-    for idx, ch in enumerate(m):
+    for idx, ch in enumerate(converted):
         if ch == '#':
             cur_idx = idx
-            splitter.append(m[prev_idx + 1:cur_idx - 1] + m[cur_idx - 1].lower())
+            splitter.append(converted[prev_idx + 1:cur_idx - 1] + converted[cur_idx - 1].lower())
             prev_idx = idx
     if splitter:
-        splitter.append(m[cur_idx + 1:])
-        new_m = ''.join(splitter)
+        splitter.append(converted[cur_idx + 1:])
+        return ''.join(splitter)
     else:
-        new_m = m
+        return str(converted)
+
+
+def solution(m, musicinfos):
+    new_m = convert(m)
 
     hubo = []
     for music_idx, music_info in enumerate(musicinfos):
@@ -21,16 +25,7 @@ def solution(m, musicinfos):
         sec = info[1].split(":")
         cur_play = (int(sec[0]) * 60 + int(sec[1])) - (int(fir[0]) * 60 + int(fir[1]))
 
-        prev_idx, cur_idx, splitter = -1, -1, []
-        for idx, ch in enumerate(info[3]):
-            if ch == '#':
-                cur_idx = idx
-                splitter.append(info[3][prev_idx + 1:cur_idx - 1] + info[3][cur_idx - 1].lower())
-                prev_idx = idx
-        if splitter:
-            splitter.append(info[3][cur_idx + 1:])
-            info[3] = ''.join(splitter)
-
+        info[3] = convert(info[3])
         multi = cur_play // len(info[3])
         mod = cur_play % len(info[3])
 
