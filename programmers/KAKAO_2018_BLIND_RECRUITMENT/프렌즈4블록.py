@@ -1,15 +1,13 @@
 def validate(curR, curC, board, visited):
     dr = [0, 1, 1]
     dc = [1, 0, 1]
-    try:
-        if board[curR][curC] == board[curR + 1][curC] == board[curR][curC + 1] == board[curR + 1][curC + 1]:
-            visited[curR][curC] = True
-            for k in range(3):
-                visited[curR + dr[k]][curC + dc[k]] = True
-            return True
-        else:
-            return False
-    except IndexError:
+
+    if board[curR][curC] == board[curR + 1][curC] == board[curR][curC + 1] == board[curR + 1][curC + 1]:
+        visited.add((curR, curC))
+        for k in range(3):
+            visited.add((curR + dr[k], curC + dc[k]))
+        return True
+    else:
         return False
 
 
@@ -32,7 +30,7 @@ def solution(m, n, board):
     answer = 0
 
     while True:
-        visited = [[False] * n for _ in range(m)]
+        visited = set()
         flag = False
         for i in range(m - 1):
             for j in range(n - 1):
@@ -42,11 +40,10 @@ def solution(m, n, board):
         if not flag:
             break
 
-        for i in range(m):
-            for j in range(n):
-                if visited[i][j]:
-                    answer += 1
-                    new_board[i][j] = 0
+        answer += len(visited)
+        for r, c in visited:
+            new_board[r][c] = 0
+
         for j in range(n):
             for i in range(m - 2, -1, -1):
                 if new_board[i][j]:
