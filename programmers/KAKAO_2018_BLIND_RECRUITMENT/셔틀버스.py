@@ -33,6 +33,4 @@ def solution(n, t, m, timetable):
                 break
         que = que[m:]
         cur_time += t
-    else:
-        return convert(timetable[m - 1] - 1) if m <= len(timetable) and timetable[m - 1] <= cur_time \
-            else convert(cur_time)
+    return convert(timetable[m - 1] - 1) if m <= len(timetable) and timetable[m - 1] <= cur_time else convert(cur_time)
