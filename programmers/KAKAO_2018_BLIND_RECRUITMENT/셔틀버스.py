@@ -1,4 +1,4 @@
-from collections import OrderedDict, deque
+from collections import deque, Counter
 from functools import reduce
 
 
@@ -10,15 +10,9 @@ def convert(converted):
 
 def solution(n, t, m, timetable):
     timetable = deque(sorted([reduce(lambda x, y: int(x) * 60 + int(y), time.split(':')) for time in timetable]))
-    new_table = OrderedDict()
-    for time in timetable:
-        if time in new_table:
-            new_table[time] += 1
-        else:
-            new_table[time] = 1
+    new_table = Counter(timetable)
 
     cur_time, que = 540, []
-
     while cur_time < 540 + (n - 1) * t:
         while timetable and timetable[0] <= cur_time:
             cur_order = timetable[0]
