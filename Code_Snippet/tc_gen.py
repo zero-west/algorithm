@@ -16,4 +16,4 @@ def gen(sel):
 #     print(gen(s), gen(s))
 
 for _ in range(1000):
-    print(gen(range(10)), gen(range(200)))
+    print(gen(range(1,10)), gen(range(1,200)))
