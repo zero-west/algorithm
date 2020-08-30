@@ -8,7 +8,3 @@ This repo is for Problem-Solving.
 * PROGRAMMERS : [프로그래머스](https://programmers.co.kr/learn/challenges)
 * SWEA : [SWExpertAcademy](https://swexpertacademy.com)
 * LeetCode : [리트코드](https://leetcode.com/problemset/all/)
-
-
-### - Code_Snippet
-개인적으로 공부하면서 참고할만한 코드들을 정리
