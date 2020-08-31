@@ -21,8 +21,4 @@ def solution(gems):
                     del cur_status[gems[p]]
                 p += 1
             answer.append((p, q))
-    print(answer)
     return list(min(answer, key=lambda k: (k[1] - k[0], k[0])))
-
-
-print(solution(["XYZ", "XYZ", "XYZ"]))
