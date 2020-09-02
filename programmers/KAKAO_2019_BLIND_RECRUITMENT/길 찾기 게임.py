@@ -47,10 +47,10 @@ def solution(nodeinfo):
         for x in xList:
             tree.insert(x, y, levels[idx - 1][0])
 
-    answer, pre_order, post_order = [], [], []
+    answer = [[], []]
 
     def pre_dfs(cur_node):
-        pre_order.append(mapping[(cur_node.x, cur_node.y)])
+        answer[0].append(mapping[(cur_node.x, cur_node.y)])
         if cur_node.left:
             pre_dfs(cur_node.left)
         if cur_node.right:
@@ -61,10 +61,8 @@ def solution(nodeinfo):
             post_dfs(cur_node.left)
         if cur_node.right:
             post_dfs(cur_node.right)
-        post_order.append(mapping[(cur_node.x, cur_node.y)])
+        answer[1].append(mapping[(cur_node.x, cur_node.y)])
 
     pre_dfs(tree.head)
     post_dfs(tree.head)
-    answer.append(pre_order)
-    answer.append(post_order)
     return answer
