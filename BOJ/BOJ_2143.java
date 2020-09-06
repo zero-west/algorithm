@@ -8,12 +8,12 @@ public class Main {
         int T = Integer.parseInt(br.readLine());
 
         int N = Integer.parseInt(br.readLine());
-        long[] arr1 = Arrays.stream((new StringBuilder("0 ") + br.readLine()).split(" "))
+        long[] arr1 = Arrays.stream(("0 " + br.readLine()).split(" "))
                 .mapToLong(Long::parseLong).toArray();
         Arrays.parallelPrefix(arr1, (x, y) -> x + y);
 
         int M = Integer.parseInt(br.readLine());
-        long[] arr2 = Arrays.stream((new StringBuilder("0 ") + br.readLine()).split(" "))
+        long[] arr2 = Arrays.stream(("0 " + br.readLine()).split(" "))
                 .mapToLong(Long::parseLong).toArray();
         Arrays.parallelPrefix(arr2, (x, y) -> x + y);
 
