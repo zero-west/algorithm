@@ -1,4 +1,4 @@
-# Algorithm
+# Problem Solving
 This repo is for Problem-Solving.
 
 
