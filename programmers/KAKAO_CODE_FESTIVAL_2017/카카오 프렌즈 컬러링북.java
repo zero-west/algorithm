@@ -14,7 +14,7 @@ class Solution {
     static int dR[] = new int[]{-1, 0, 1, 0};
     static int dC[] = new int[]{0, -1, 0, 1};
 
-    public int bfs(int curR, int curC, int m, int n, int[][] picture, boolean[][] visited) {
+    private int bfs(int curR, int curC, int m, int n, int[][] picture, boolean[][] visited) {
         int curArea = 0;
         
         Queue<Pair> queue = new ArrayDeque<>();
