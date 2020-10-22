@@ -9,7 +9,6 @@ int N;
 int dist[100001];       // 서브트리 내 최대 거리
 int dist2[100001];      // 서브트리 내 두번째 최대 거리
 int maxDist[100001];    // 가장 먼 정점과의 거리
-int check[100001];
 
 vector<pair<int, short>> adj[100001];
 vector<pair<int, short>> tree[100001];
@@ -39,6 +38,7 @@ void make_tree(int root) {
 
 void sub_dfs(int cur) {
     dist[cur] = dist[cur] = 0;
+
     for (const auto &info: tree[cur]) {
         auto[nxt, cost] = info;
         
@@ -54,9 +54,8 @@ void sub_dfs(int cur) {
 }
 
 void solve_dfs(int cur, int parent_far) {
-    check[cur] = 2;
-
     maxDist[cur] = max(dist[cur], parent_far);
+
     for (const auto &info: tree[cur]) {
         auto[nxt, cost] = info;
 
