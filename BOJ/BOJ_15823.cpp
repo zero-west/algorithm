@@ -34,14 +34,14 @@ int main(void) {
         cin >> arr[i];
     }
 
-    unordered_multiset<int> ums;
+    unordered_set<int> us;
     int p = 0, q = 0;
     while (p < N) {
         if (q >= N || ums.count(arr[q])) {
             maxLen[p] = q - p;
-            ums.erase(arr[p++]);
+            us.erase(arr[p++]);
         } else {
-            ums.insert(arr[q++]);
+            us.insert(arr[q++]);
         }
     }
 
