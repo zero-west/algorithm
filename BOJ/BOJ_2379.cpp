@@ -8,7 +8,7 @@ using namespace std;
 int T;
 
 auto solve(string curPath) {
-    vector<int> ret(count(curPath.begin(), curPath.end(), '0') + 1, 0);
+    vector<int> ret(curPath.length() / 2 + 1, 0);
 
     stack<pair<int, int>> st;   // parent, cur
     int curIdx = 0;
