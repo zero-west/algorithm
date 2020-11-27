@@ -51,13 +51,13 @@ que = deque([(0, 0)])
 visited = {(0, 0)}
 
 while que:
-    total, cur_state = que.popleft()
+    total, cur_idx = que.popleft()
 
     result = max(result, total)
 
-    if cur_state < N:
-        for sel in range(info[cur_state][0]):
-            nxt = cur_state + sel
+    if cur_idx < N:
+        for plus in range(info[cur_idx][0]):
+            nxt = cur_idx + plus
             if nxt >= N or nxt + info[nxt][0] > N:
                 continue
 
@@ -78,18 +78,19 @@ que = deque([0])
 visited = {0: 0}
 
 while que:
-    cur_state = que.popleft()
+    cur_idx = que.popleft()
 
-    result = max(result, visited[cur_state])
+    result = max(result, visited[cur_idx])
 
-    if cur_state < N:
-        for sel in range(info[cur_state][0]):
-            nxt = cur_state + sel
+    if cur_idx < N:
+        for plus in range(info[cur_idx][0]):
+            nxt = cur_idx + plus
+
             if nxt >= N or nxt + info[nxt][0] > N:
                 continue
 
             nxt_state = nxt + info[nxt][0]
-            nxt_total = visited[cur_state] + info[nxt][1]
+            nxt_total = visited[cur_idx] + info[nxt][1]
 
             if nxt_state in visited and visited[nxt_state] >= nxt_total:
                 continue
