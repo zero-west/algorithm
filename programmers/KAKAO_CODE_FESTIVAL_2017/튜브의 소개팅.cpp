@@ -2,7 +2,7 @@
 
 using namespace std;
 
-priority_queue<tuple<int, int, int>> pq;
+queue<tuple<int, int, int>> pq;
 long dp[51][51][2501];
 
 vector<int> solution(int m, int n, int s, vector<vector<int>> time_map) {
@@ -15,9 +15,8 @@ vector<int> solution(int m, int n, int s, vector<vector<int>> time_map) {
 
     pq.emplace(0, 0, 0);
     while (!pq.empty()) {
-        auto[curDist, curR, curC] = pq.top();
+        auto[curDist, curR, curC] = pq.front();
         pq.pop();
-        curDist *= -1;
 
         if (curDist > m * n) continue;
         for (int k = 0; k < 4; k++) {
@@ -31,7 +30,7 @@ vector<int> solution(int m, int n, int s, vector<vector<int>> time_map) {
             if (nCost > s || dp[nR][nC][curDist + 1] <= nCost) continue;
 
             dp[nR][nC][curDist + 1] = nCost;
-            pq.emplace(-(curDist + 1), nR, nC);
+            pq.emplace((curDist + 1), nR, nC);
         }
     }
 
