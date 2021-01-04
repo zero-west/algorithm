@@ -5,7 +5,7 @@ public class Main {
     int N;
     int zeros;
     int[] arr;
-    Map<Integer, Integer> mapping = new HashMap<>();
+    Map<Integer, Integer> mapping;
 
     void init() throws Exception {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
@@ -13,6 +13,7 @@ public class Main {
         arr = Arrays.stream(bufferedReader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         bufferedReader.close();
 
+        mapping = new HashMap<>(N * N);
         for (int i = 0; i < N - 1; i++) {
             if (arr[i] == 0) zeros++;
             for (int j = i + 1; j < N; j++) {
