@@ -7,7 +7,6 @@ def solution(enroll, referral, seller, amount):
 
         if cur_amount * 9 // 10 >= 1 and cur in head:
             solve(head[cur], cur_amount // 10)
-            print(cnt)
 
     for s, a in zip(seller, amount):
         solve(s, a * 100)
